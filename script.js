@@ -16,6 +16,13 @@ deleteButton.textContent="Delete";
 task.appendChild(deleteButton);
 deleteButton.onclick=function() {
     this.parentElement.remove();
+    task.onclick =function() {
+    if (task.style.textDecoration === "none") {
+        task.style.textDecoration = "line-through";
+    } else {
+        task.style.textDecoration = "none";
+    }
+};
     }});
 }
 function addTask() {
@@ -46,4 +53,4 @@ deleteButton.onclick=function() {
 }};
 function clearTasks() {
     taskList.textContent = "";
-}
+}}

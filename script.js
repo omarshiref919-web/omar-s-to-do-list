@@ -16,15 +16,19 @@ deleteButton.textContent="Delete";
 task.appendChild(deleteButton);
 deleteButton.onclick=function() {
     this.parentElement.remove();
-    task.onclick =function() {
+    tasks.splice(tasks.indexOf(taskText), 1);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+};
+task.onclick =function() {
     if (task.style.textDecoration === "none") {
         task.style.textDecoration = "line-through";
     } else {
         task.style.textDecoration = "none";
+        localStorage.setItem("tasks", JSON.stringify(savedTasks));
     }
 };
-    }});
-}
+    })};
+ 
 function addTask() {
 const taskText =input.value;
 if (taskText==="") {
@@ -53,4 +57,4 @@ deleteButton.onclick=function() {
 }};
 function clearTasks() {
     taskList.textContent = "";
-}}
+}
